@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,300;0,400;0,500;0,600;0,800;0,900;1,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,800;0,900;1,400&family=Poppins:wght@300;400;500;600;800;900&display=swap");
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #8e8d8d;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #8e8d8d;
+}
