@@ -20,40 +20,33 @@ interface TableProps {
   data: Lead[];
 }
 
-const Table: React.FC<TableProps> = ({ data}) => {
+const Table: React.FC<TableProps> = ({ data}) => { 
   const cols: GridColDef[] = [
     {
-      field: "contactAccuracyScore",
-      headerName: "Lead Score",
-      flex: 1,
-    },
-    {
-      field: "company",
+      field: "company_name",
       headerName: "Company Name",
       flex: 1,
-      renderCell: (param) => {
-        return (
-          <Box>
-            {param.row.company.name}
-          </Box>
-        );
-      },
     },
     {
-      field: "firstName",
+      field: "contact_jobTitle",
+      headerName: "Job Title",
+      flex: 1,
+    },
+    {
+      field: "contact_firstName",
       headerName: "Contact Name",
       flex: 1,
       renderCell: (param) => {
         return (
           <Box>
-            {param.row.firstName}&nbsp;{param.row.lastName}
+            {param.row.contact_firstName}&nbsp;{param.row.contact_lastName}
           </Box>
         );
       },
     },
     {
-      field: "jobTitle",
-      headerName: "Job Title",
+      field: "category",
+      headerName: "Buyer Intent",
       flex: 1,
     },
   
@@ -67,14 +60,14 @@ const Table: React.FC<TableProps> = ({ data}) => {
     <Box>
       {/* Display DataGrid */}
       <Box width={"65vw"}>
-        <DataGrid
-          getRowId={(row: any) => row.id + Math.random()}
-          rows={data ? data : []}
+       <DataGrid
+          getRowId={(row: any) => `${row.id_x}${Math.random()}`}
+          rows={data.length > 50 ? data?.slice(0, 50) : []}
           columns={cols}
           initialState={{
             pagination: {
               paginationModel: {
-                pageSize: 5,
+                pageSize: 10,
               },
             },
           }}
@@ -84,11 +77,11 @@ const Table: React.FC<TableProps> = ({ data}) => {
           hideFooterSelectedRowCount
           sx={{
             ...MuiCss.datagridTable,
+            fontSize:14
           }}
+          rowHeight={35}
           checkboxSelection
           onRowSelectionModelChange={(ids) => {
-            console.log(ids,'ids');
-            
             const selectedIDs = new Set(ids);
             const selectedRows = data.filter((row) =>
               selectedIDs.has(row.id),

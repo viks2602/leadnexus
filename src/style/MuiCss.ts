@@ -31,6 +31,7 @@ export const MuiCss = {
     ".MuiDataGrid-columnHeaders": {
       border: 0,
       color: "#248DC1",
+      fontSize:'16px'
     },
     ".MuiDataGrid-row": {
       borderBottom: "none",
@@ -51,7 +52,8 @@ export const MuiCss = {
   },
   filteraccordiansummary:{
     p:0,
-    fontFamily:'Nunito'
+    fontFamily:'Nunito',
+    fontSize:'14px'
   },
   textfieldcss:{
     bgcolor: '#DADADA',

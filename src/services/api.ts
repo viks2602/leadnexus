@@ -2,10 +2,9 @@ import axios from "axios";
 import { baseUrl , zoomInfoUrl } from "../config/config";
     
 const Instance = axios.create({
-    baseURL: `${baseUrl}/api/`,
+    baseURL: `${baseUrl}`,
    headers: {
         "Content-Type": "application/json",
-        
     }
 });
 
